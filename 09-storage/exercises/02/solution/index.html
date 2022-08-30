@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cookie handler</title>
+  </head>
+
+  <body>
+    <script type="module">
+      import cookieHandler from './js/cookieHandler.js';
+
+      const cookiesObject = {
+        viewed: '5',
+        uid: '354774631237',
+        ssid: 'Bx55OWbHJ0Vt_IGIF',
+      };
+
+      Object.entries(cookiesObject).forEach(([key, value]) => {
+        document.cookie = `${key}=${value}; expires=${new Date() + 2}`
+      });
+
+      cookieHandler.getAll()
+      cookieHandler.flush()
+    </script>
+  </body>
+
+</html>
