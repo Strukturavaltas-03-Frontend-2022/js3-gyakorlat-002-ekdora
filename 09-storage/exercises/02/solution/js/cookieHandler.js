@@ -15,7 +15,7 @@ document.cookie = "uid=354774631237; SameSite=None; Secure";
 document.cookie = "ssid=Bx55OWbHJ0Vt_IGIF; SameSite=None; Secure";
 const cookieHandler = {
     getAll() {
-        const obj = {};
+        let obj = {};
         console.log(document.cookie);
         document.cookie.split('; ').forEach((entry) => {
             const [key, value] = entry.split('=');
@@ -35,7 +35,7 @@ const cookieHandler = {
     flush() {
         const result = this.getAll();
         Object.keys(result).forEach ((key) => {
-            document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`
+            document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC;`
         });
     }
 };
